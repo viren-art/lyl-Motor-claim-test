@@ -1,0 +1,9 @@
+{
+  "name": "@roojai/audit-service",
+  "version": "1.0.0",
+  "description": "Immutable audit log service with hash-chain integrity for PDPA compliance",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
