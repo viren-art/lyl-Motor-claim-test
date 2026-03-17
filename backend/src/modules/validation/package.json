@@ -1,0 +1,7 @@
+{
+  "name": "@roojai/validation-service",
+  "version": "1.0.0",
+  "description": "Mandatory field validation and gap detection",
+  "main": "index.js",
+  "dependencies": {}
+}
