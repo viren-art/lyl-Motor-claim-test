@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: roojai-claims-config
+  namespace: roojai-claims
+data:
+  # Circuit Breaker Configuration
+  circuit-breaker.yaml: |
+    primary:
+      failureThreshold: 3
+      successThreshold: 2
+      timeout: 10000
+      resetTimeout: 30000
+      halfOpenMaxCalls: 1
+    secondary:
+      failureThreshold: 3
+      successThreshold: 2
+      timeout: 10000
+      resetTimeout: 30000
+      halfOpenMaxCalls: 1
+  
+  # SLA Configuration
+  sla-config.yaml: |
+    targets:
+      intakeSummary: 30000
+      routingDecision: 60000
+      extraction: 25000
+      coverageCheck: 10000
+      questionGeneration: 15000
+    alerting:
+      breachThreshold: 5
+      alertCooldown: 300000
+  
+  # Escalation Configuration
+  escalation-config.yaml: |
+    thresholds:
+      confidenceScore: 0.75
+      highValueAmount: 500000
+      fraudRiskScore: 70
+    urgency:
+      critical: 
+        - LLM_SERVICE_UNAVAILABLE
+        - HIGH_VALUE_CLAIM
+      high:
+        - LOW_CONFIDENCE
+        - FRAUD_INDICATORS
+      medium:
+        - MISSING_INFORMATION
+        - POLICY_INACTIVE
