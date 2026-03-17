@@ -1,0 +1,18 @@
+{
+  "name": "@roojai/resilience-service",
+  "version": "1.0.0",
+  "description": "LLM service resilience with circuit breaker and automatic failover",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.5",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
