@@ -1,12 +1,13 @@
 {
-  "version": "1.0.0",
-  "description": "Ground truth dataset for Thai/English/Tinglish extraction accuracy validation",
+  "dataset_version": "1.0.0",
   "total_cases": 500,
+  "description": "Ground truth dataset for Thai/English/Tinglish motor insurance FNOL extraction validation",
   "test_cases": [
     {
       "case_id": "GT-001",
+      "description": "Thai narrative with vehicle and location details",
       "input": {
-        "narrative": "รถผมชนกับรถกระบะสีขาว ทะเบียน กข-1234 ที่แยกอโศก เมื่อเช้านี้เวลา 9 โมง",
+        "narrative": "รถผมชนกับรถกระบะสีขาว ทะเบียน กข-1234 ที่แยกอโศก เมื่อเช้านี้",
         "language": "th",
         "channel": "chat"
       },
@@ -16,12 +17,10 @@
             "vehicle_type": "INSURED",
             "make": "unknown",
             "model": "unknown",
-            "license_plate": "unknown",
-            "color": "unknown"
+            "license_plate": "unknown"
           },
           {
             "vehicle_type": "THIRD_PARTY",
-            "make": "unknown",
             "model": "กระบะ",
             "license_plate": "กข-1234",
             "color": "white"
@@ -31,22 +30,17 @@
           "location": {
             "address": "แยกอโศก",
             "landmark": "Asoke intersection"
-          },
-          "incident_timestamp": "2024-01-15T09:00:00+07:00"
+          }
         },
-        "injuries": {
-          "injuries_reported": false
-        },
-        "police_report": {
-          "report_filed": "unknown"
-        }
+        "missing_critical_fields": ["police_report_status"]
       }
     },
     {
       "case_id": "GT-002",
+      "description": "Tinglish mixed Thai-English input",
       "input": {
-        "narrative": "รถผม hit กระบะ at แยก Asoke เมื่อเช้า damage ที่กันชนหน้า",
-        "language": "th",
+        "narrative": "รถผม hit กระบะ at แยก Asoke กันชนหน้าเสียหาย",
+        "language": "th-en",
         "channel": "chat"
       },
       "expected_output": {
@@ -62,19 +56,19 @@
         ],
         "incident_details": {
           "location": {
-            "address": "แยก Asoke",
-            "landmark": "Asoke intersection"
-          },
-          "accident_type": "COLLISION"
-        }
+            "address": "แยก Asoke"
+          }
+        },
+        "language_detected": "th-en"
       }
     },
     {
       "case_id": "GT-003",
+      "description": "English narrative with full vehicle details",
       "input": {
-        "narrative": "My car Toyota Camry license plate ABC-123 crashed with pickup truck at Sukhumvit Road near BTS Asoke this morning around 8:30 AM",
+        "narrative": "My Toyota Camry (ABC-123) was hit by a pickup truck on Sukhumvit Road near BTS Asoke this morning around 8:30 AM",
         "language": "en",
-        "channel": "email"
+        "channel": "web"
       },
       "expected_output": {
         "vehicles": [
@@ -92,17 +86,18 @@
         "incident_details": {
           "location": {
             "address": "Sukhumvit Road near BTS Asoke"
-          },
-          "incident_timestamp": "2024-01-15T08:30:00+07:00"
-        }
+          }
+        },
+        "language_detected": "en"
       }
     },
     {
       "case_id": "GT-004",
+      "description": "Thai narrative with injury and police report",
       "input": {
-        "narrative": "รถ Honda Jazz สีแดง ทะเบียน นข-5678 ชนท้ายรถผมที่ถนนพระราม 4 ตอนจอดไฟแดง มีคนบาดเจ็บ 1 คน แจ้งความแล้วที่สถานีตำรวจคลองเตย เลขที่ PR-2024-001",
+        "narrative": "รถ Honda Jazz สีแดง ทะเบียน นข-5678 ชนท้ายรถผมที่ถนนพระราม 4 มีผู้บาดเจ็บเล็กน้อย ได้แจ้งความที่สถานีตำรวจคลองเตยแล้ว หมายเลขคดี PR-2024-001",
         "language": "th",
-        "channel": "web"
+        "channel": "email"
       },
       "expected_output": {
         "vehicles": [
@@ -117,8 +112,7 @@
         "incident_details": {
           "location": {
             "address": "ถนนพระราม 4"
-          },
-          "accident_type": "REAR_END"
+          }
         },
         "injuries": {
           "injuries_reported": true,
@@ -133,8 +127,9 @@
     },
     {
       "case_id": "GT-005",
+      "description": "Relative time reference in Thai",
       "input": {
-        "narrative": "เมื่อวานนี้ประมาณบ่าย 3 โมง รถผม Mazda 3 ถูกรถมอเตอร์ไซค์ชนที่สี่แยกราชประสงค์ ไม่มีคนบาดเจ็บ ยังไม่ได้แจ้งความ",
+        "narrative": "เมื่อวานบ่าย 3 โมง รถ Mazda 3 ของผมชนกับมอเตอร์ไซค์ที่สี่แยกราชประสงค์ ไม่มีผู้บาดเจ็บ ยังไม่ได้แจ้งความ",
         "language": "th",
         "channel": "chat"
       },
@@ -154,8 +149,7 @@
           "location": {
             "address": "สี่แยกราชประสงค์",
             "landmark": "Ratchaprasong intersection"
-          },
-          "incident_timestamp": "2024-01-14T15:00:00+07:00"
+          }
         },
         "injuries": {
           "injuries_reported": false
