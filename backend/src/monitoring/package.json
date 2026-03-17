@@ -1,0 +1,10 @@
+{
+  "name": "@roojai/monitoring-service",
+  "version": "1.0.0",
+  "description": "SLA performance monitoring and alerting service",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.5"
+  }
+}
