@@ -1,0 +1,9 @@
+{
+  "name": "@roojai/cache-service",
+  "version": "1.0.0",
+  "description": "Redis cache management for question templates",
+  "main": "redis-config.js",
+  "dependencies": {
+    "redis": "^3.1.2"
+  }
+}
