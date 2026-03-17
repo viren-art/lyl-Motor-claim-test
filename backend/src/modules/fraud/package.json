@@ -1,0 +1,10 @@
+{
+  "name": "@roojai/fraud-service",
+  "version": "1.0.0",
+  "description": "Fraud risk scoring and pattern detection service",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.5"
+  }
+}
