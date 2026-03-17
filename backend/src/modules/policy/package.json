@@ -1,0 +1,9 @@
+{
+  "name": "@roojai/policy-service",
+  "version": "1.0.0",
+  "description": "Policy validation and coverage checklist service",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
