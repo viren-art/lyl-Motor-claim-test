@@ -1,0 +1,13 @@
+{
+  "name": "@roojai/questions-service",
+  "version": "1.0.0",
+  "description": "Thai-friendly clarifying questions generation service",
+  "main": "app.py",
+  "scripts": {
+    "start": "uvicorn app:app --host 0.0.0.0 --port 8000",
+    "dev": "uvicorn app:app --reload --host 0.0.0.0 --port 8000",
+    "test": "pytest tests/ -v"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
